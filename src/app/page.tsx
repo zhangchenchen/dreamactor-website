@@ -4,7 +4,6 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { MethodSection } from "@/components/sections/method-section";
 import { ResultsSection } from "@/components/sections/results-section";
 import { CitationSection } from "@/components/sections/citation-section";
-import { VideoDemoSection } from "@/components/sections/video-demo-section";
 
 export default function Home() {
   return (
@@ -12,7 +11,6 @@ export default function Home() {
       <Header />
       <HeroSection />
       <MethodSection />
-      <VideoDemoSection />
       <ResultsSection />
       <CitationSection />
       <Footer />

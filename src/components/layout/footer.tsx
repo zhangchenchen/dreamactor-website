@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -51,11 +50,6 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#video-demos" className="text-sm hover:text-white transition-colors duration-200">
-                  Video Demos
-                </Link>
-              </li>
-              <li>
                 <Link href="/#results" className="text-sm hover:text-white transition-colors duration-200">
                   Results
                 </Link>
@@ -63,11 +57,6 @@ export function Footer() {
               <li>
                 <Link href="/#citation" className="text-sm hover:text-white transition-colors duration-200">
                   Citation
-                </Link>
-              </li>
-              <li>
-                <Link href="https://dreamactor-m1.com" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-white transition-colors duration-200">
-                  Official Website
                 </Link>
               </li>
             </ul>

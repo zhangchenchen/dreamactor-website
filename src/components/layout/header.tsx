@@ -3,13 +3,12 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { GithubIcon, MenuIcon, X } from "lucide-react";
+import { MenuIcon, X } from "lucide-react";
 import { motion } from "framer-motion";
 
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Method", href: "/#method" },
-  { name: "Videos", href: "/#video-demos" },
   { name: "Results", href: "/#results" },
   { name: "Paper", href: "https://arxiv.org/abs/2504.01724", external: true },
   { name: "GitHub", href: "https://github.com/grisoon/DreamActor-M1", external: true },

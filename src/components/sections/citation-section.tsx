@@ -161,12 +161,13 @@ export function CitationSection() {
               </Card>
               
               <div className="flex justify-end">
-                <Dialog>
+                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                   <DialogTrigger asChild>
                     <Button
                       variant="ghost"
                       size="sm"
                       className="text-purple-400 hover:text-purple-300 hover:bg-purple-950/30"
+                      onClick={copyToClipboard}
                     >
                       Copy Citation
                     </Button>
