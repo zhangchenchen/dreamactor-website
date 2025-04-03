@@ -3,8 +3,17 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export function HeroSection() {
+  // 添加状态来控制粒子是否显示
+  const [isClient, setIsClient] = useState(false);
+  
+  // 在客户端渲染后设置状态
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Elements */}
@@ -12,8 +21,8 @@ export function HeroSection() {
         {/* Animated grid pattern */}
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-repeat opacity-10"></div>
       
-        {/* Animated particles */}
-        {Array.from({ length: 50 }).map((_, i) => (
+        {/* Animated particles - 只在客户端渲染 */}
+        {isClient && Array.from({ length: 50 }).map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 rounded-full bg-blue-500"
