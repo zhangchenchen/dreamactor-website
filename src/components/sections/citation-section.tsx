@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import Link from "next/link";
 
 export function CitationSection() {
   const fadeIn = {
@@ -77,8 +78,15 @@ export function CitationSection() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                   </svg>
-                  <h3 className="text-xl font-bold text-white">DreamActor-M1 Paper</h3>
-                  <p className="text-gray-300 text-sm">arXiv:2504.01724</p>
+                  <Link 
+                    href="https://arxiv.org/abs/2504.01724" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block hover:text-blue-400 transition-colors"
+                  >
+                    <h3 className="text-xl font-bold text-white hover:text-blue-400 transition-colors">DreamActor-M1 Paper</h3>
+                    <p className="text-gray-300 text-sm hover:text-blue-400 transition-colors">arXiv:2504.01724</p>
+                  </Link>
                   <div className="border-t border-purple-600/30 w-24 mx-auto pt-4">
                     <p className="text-xs text-gray-400">Published 2025</p>
                   </div>
