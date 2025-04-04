@@ -5,6 +5,18 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+// Video Player component
+const VideoPlayer = ({ src }: { src: string }) => (
+  <video 
+    className="w-full h-full object-cover rounded-xl"
+    src={src}
+    autoPlay
+    loop
+    muted
+    playsInline
+  />
+);
+
 export function HeroSection() {
   // 添加状态来控制粒子是否显示
   const [isClient, setIsClient] = useState(false);
@@ -102,8 +114,11 @@ export function HeroSection() {
           <div className="relative rounded-xl overflow-hidden shadow-2xl shadow-purple-500/20 border border-purple-500/20">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 opacity-20 blur-sm"></div>
             <div className="aspect-video w-full bg-gradient-to-r from-blue-900/30 to-purple-900/30 flex items-center justify-center rounded-xl relative z-10">
-              {/* Fallback content if image is not available */}
-              <div className="text-center px-4">
+              {/* Video player */}
+              <VideoPlayer src="/static/2.mov" />
+              
+              {/* Overlay text */}
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent text-center">
                 <h3 className="text-2xl font-bold text-white mb-2">DreamActor-M1 Demo</h3>
                 <p className="text-gray-300">Human Animation with Hybrid Guidance</p>
               </div>

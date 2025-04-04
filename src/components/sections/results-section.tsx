@@ -26,10 +26,18 @@ export function ResultsSection() {
     { id: "portrait", name: "Portrait Animation" }
   ];
 
-  // Placeholder component for missing images
-  const ImagePlaceholder = ({ title, category }: { title: string, category: string }) => (
-    <div className="aspect-video w-full bg-gradient-to-r from-blue-900/30 to-purple-900/30 flex items-center justify-center rounded-xl">
-      <div className="text-center px-4">
+  // Video component to replace the placeholder
+  const VideoPlayer = ({ src, title, category }: { src: string, title: string, category: string }) => (
+    <div className="relative aspect-video w-full rounded-xl overflow-hidden">
+      <video 
+        className="w-full h-full object-cover"
+        src={src}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
         <h3 className="text-lg font-bold text-white mb-2">{title}</h3>
         <p className="text-gray-300 text-sm">{category}</p>
       </div>
@@ -84,19 +92,17 @@ export function ResultsSection() {
               
               <Carousel className="w-full">
                 <CarouselContent>
-                  {[1, 2, 3, 4].map((index) => (
+                  {[1, 2, 3].map((index) => (
                     <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                       <div className="p-2 h-full">
                         <Card className="border-0 overflow-hidden shadow-xl h-full bg-transparent">
                           <CardContent className="p-0 relative aspect-video overflow-hidden rounded-xl">
                             <div className="absolute inset-0 bg-gradient-to-tr from-purple-800/20 to-blue-600/20"></div>
-                            <ImagePlaceholder 
+                            <VideoPlayer 
+                              src={`/static/diversity-${index}.mov`}
                               title={`Style Example ${index}`} 
                               category="Character & Motion"
                             />
-                            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                              <h4 className="font-medium text-white">Style Example {index}</h4>
-                            </div>
                           </CardContent>
                         </Card>
                       </div>
@@ -130,13 +136,11 @@ export function ResultsSection() {
                   <Card className="border-0 overflow-hidden shadow-xl bg-transparent">
                     <CardContent className="p-0 relative aspect-video overflow-hidden rounded-xl">
                       <div className="absolute inset-0 bg-gradient-to-tr from-purple-800/20 to-blue-600/20"></div>
-                      <ImagePlaceholder 
+                      <VideoPlayer 
+                        src="/static/control-1.mov"
                         title="Facial Expression Control" 
                         category="Fine-grained Control"
                       />
-                      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                        <h4 className="font-medium text-white">Facial Expression Control</h4>
-                      </div>
                     </CardContent>
                   </Card>
                   
@@ -149,13 +153,11 @@ export function ResultsSection() {
                   <Card className="border-0 overflow-hidden shadow-xl bg-transparent">
                     <CardContent className="p-0 relative aspect-video overflow-hidden rounded-xl">
                       <div className="absolute inset-0 bg-gradient-to-tr from-purple-800/20 to-blue-600/20"></div>
-                      <ImagePlaceholder 
+                      <VideoPlayer 
+                        src="/static/control-5.mov"
                         title="Head Pose Direction" 
                         category="Pose Control"
                       />
-                      <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                        <h4 className="font-medium text-white">Head Pose Direction</h4>
-                      </div>
                     </CardContent>
                   </Card>
                   
@@ -245,7 +247,8 @@ export function ResultsSection() {
                 <CardContent className="p-0 relative overflow-hidden rounded-xl">
                   <div className="absolute inset-0 bg-gradient-to-tr from-purple-800/20 to-blue-600/20"></div>
                   <div className="aspect-video w-full">
-                    <ImagePlaceholder 
+                    <VideoPlayer 
+                      src="/static/2.mov"
                       title="SOTA Comparison" 
                       category="DreamActor-M1 vs State-of-the-art Methods"
                     />
@@ -273,13 +276,14 @@ export function ResultsSection() {
               
               <Carousel className="w-full">
                 <CarouselContent>
-                  {[1, 2, 3].map((index) => (
+                  {[1, 3, 5].map((index) => (
                     <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                       <div className="p-2 h-full">
                         <Card className="border-0 overflow-hidden shadow-xl h-full bg-transparent">
                           <CardContent className="p-0 relative aspect-video overflow-hidden rounded-xl">
                             <div className="absolute inset-0 bg-gradient-to-tr from-purple-800/20 to-blue-600/20"></div>
-                            <ImagePlaceholder 
+                            <VideoPlayer 
+                              src={`/static/${index}.mov`}
                               title={`Pose Transfer ${index}`} 
                               category="Subject Transformation"
                             />
@@ -315,7 +319,8 @@ export function ResultsSection() {
                 <Card className="border-0 overflow-hidden shadow-xl bg-transparent">
                   <CardContent className="p-0 relative aspect-video overflow-hidden rounded-xl">
                     <div className="absolute inset-0 bg-gradient-to-tr from-purple-800/20 to-blue-600/20"></div>
-                    <ImagePlaceholder 
+                    <VideoPlayer 
+                      src="/portrait-1.mov"
                       title="Portrait Animation 1" 
                       category="Facial Expressions"
                     />
@@ -325,7 +330,8 @@ export function ResultsSection() {
                 <Card className="border-0 overflow-hidden shadow-xl bg-transparent">
                   <CardContent className="p-0 relative aspect-video overflow-hidden rounded-xl">
                     <div className="absolute inset-0 bg-gradient-to-tr from-purple-800/20 to-blue-600/20"></div>
-                    <ImagePlaceholder 
+                    <VideoPlayer 
+                      src="/static/1.mov"
                       title="Portrait Animation 2" 
                       category="Head Movement"
                     />
